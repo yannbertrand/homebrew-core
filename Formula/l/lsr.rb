@@ -7,12 +7,11 @@ class Lsr < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1684d5db5fd99d451a80034ac2168b7e5ef5cb22a284ae9d9c587a7fa8f435bf"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5a27d7bc4981b7303039e18075037a0c87615c70f2cc7e63937b08a6593bed38"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "080c3bbf7a9ec1cef93b734868fac72f922ab66b5c9286a36fdb61d89ffb260a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0e98cfe0a45ebdc07e08b3e06157612110df9824170d8a1eae573836b70bc98c"
-    sha256 cellar: :any_skip_relocation, ventura:       "a1f894defb6f85dfb7362814e325ccaabebfd0914d0a82c63a219940c74ae6d7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0044a4cca23cb76a32c0095cee321c50d049007a608ae54155268b0ac30a1213"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "687a37a2078c93c0ab63671290f760d81b802b6f45b93537e2d1d9e9e0b30c15"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9c6c3b3168fc24f4b9b0d3534da7bcdbf63b260fc893c8ed4f1ee0ea65d67f17"
+    sha256 cellar: :any_skip_relocation, sonoma:        "53dc42884592df8d0df131a545b6fab5e01df4e35cd71bf5b5ffd1e21ff8dbe5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5195ad04f4d71a0bb6867155e2eac5e14f56d8b9bd0a50852cfaf0998cc2f366"
   end
 
   # Aligned to `zig@0.14` formula. Can be removed if upstream updates to newer Zig.
