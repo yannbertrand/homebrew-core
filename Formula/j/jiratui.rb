@@ -10,12 +10,6 @@ class Jiratui < Formula
   depends_on "libyaml"
   depends_on "python@3.13"
 
-  # Additional dependency
-  # resource "" do
-  #   url ""
-  #   sha256 ""
-  # end
-
   resource "annotated-types" do
     url "https://files.pythonhosted.org/packages/ee/67/531ea369ba64dcff5ec9c3402f9f51bf748cec26dde048a2f973a4eea7f5/annotated_types-0.7.0.tar.gz"
     sha256 "aff07c09a53a08bc8cfccb9c85b05f1aa9a2a6f23728d790723543408344ce89"
@@ -242,19 +236,13 @@ class Jiratui < Formula
   end
 
   def install
+    # The source doesn't have a valid SOURCE_DATE_EPOCH, so here we set default.
+    ENV["SOURCE_DATE_EPOCH"] = "1451574000"
+
     virtualenv_install_with_resources
   end
 
   test do
-    # `test do` will create, run in and delete a temporary directory.
-    #
-    # This test will fail and we won't accept that! For Homebrew/homebrew-core
-    # this will need to be a test that verifies the functionality of the
-    # software. Run the test with `brew test jiratui`. Options passed
-    # to `brew install` such as `--HEAD` also need to be provided to `brew test`.
-    #
-    # The installed folder is not in the path, so use the entire path to any
-    # executables being tested: `system bin/"program", "do", "something"`.
-    system "true"
+    assert_match version.to_s, shell_output("#{bin}/jiratui version")
   end
 end
